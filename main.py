@@ -43,8 +43,7 @@ def connection_type(v, r, links):
             return 2
         elif counter == 2:
             return 1
-        else:
-            return -1
+
 
 
 print("1 - Шина, 2 - Кольцо, 3 - Звезда, -1 - Не относится ни к одному из данных типов ")
