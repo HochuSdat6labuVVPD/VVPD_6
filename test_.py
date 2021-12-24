@@ -12,11 +12,11 @@ def test_is_full_connected(v, r, links):
     assert is_full_connected(v, r, links) is True
 
 
-@pytest.mark.parametrize("v, r, links",
-                         [(6, 5, [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]), (4, 3, [(1, 2), (2, 3), (3, 4)])])
-def test_connection_type_1(v, r, links):
+@pytest.mark.parametrize("v, r, links, result",
+                         [(6, 5, [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)],1), (4, 3, [(1, 2), (2, 3), (3, 4)],1)])
+def test_connection_type_1(v, r, links, result):
     """Проверяет работу функции connection_type в случае, когда сеть является шиной. Должна возвращать 1 """
-    assert connection_type(v, r, links) == 1
+    assert connection_type(v, r, links,) == result
 
 
 @pytest.mark.parametrize("v, r, links",
