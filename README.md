@@ -40,43 +40,45 @@ True(False) если сеть является(не является) полно
 
 
 # Программный код основных функций
-    def is_full_connected(v, r, links)
-        if r == (v * (v - 1)):
-            return True
-        else:
-            return False
-        
-    def connection_type(v, r, links):
-        dict_of_links = {}
-    for x in links:
-        if x[0] in dict_of_links:
-            dict_of_links[x[0]].add(x[1])
-        else:
-            dict_of_links[x[0]] = {x[1]}
-        if x[1] in dict_of_links:
-            dict_of_links[x[1]].add(x[0])
-        else:
-            dict_of_links[x[1]] = {x[0]}
-    flag = 0
-    for x in dict_of_links:
-        if len(dict_of_links[x]) == 1:
-            continue
-        elif len(dict_of_links[x]) == r:
-            flag = 1
-        else:
-            break
-    if flag:
-        return 3
-    counter = 0
-    for x in dict_of_links:
-        if len(dict_of_links[x]) == 1:
-            counter += 1
-        elif len(dict_of_links[x]) == 2:
-            continue
-        else:
-            return -1
+```python
+def is_full_connected(v, r, links)
+    if r == (v * (v - 1)):
+        return True
     else:
-        if counter == 0:
-            return 2
-        elif counter == 2:
-            return 1
+        return False
+
+def connection_type(v, r, links):
+    dict_of_links = {}
+for x in links:
+    if x[0] in dict_of_links:
+        dict_of_links[x[0]].add(x[1])
+    else:
+        dict_of_links[x[0]] = {x[1]}
+    if x[1] in dict_of_links:
+        dict_of_links[x[1]].add(x[0])
+    else:
+        dict_of_links[x[1]] = {x[0]}
+flag = 0
+for x in dict_of_links:
+    if len(dict_of_links[x]) == 1:
+        continue
+    elif len(dict_of_links[x]) == r:
+        flag = 1
+    else:
+        break
+if flag:
+    return 3
+counter = 0
+for x in dict_of_links:
+    if len(dict_of_links[x]) == 1:
+        counter += 1
+    elif len(dict_of_links[x]) == 2:
+        continue
+    else:
+        return -1
+else:
+    if counter == 0:
+        return 2
+    elif counter == 2:
+        return 1
+```
